@@ -8,7 +8,7 @@ import requests
 BASE_URL = "https://dummyjson.com/products"
 SEARCH_URL = "https://dummyjson.com/products/search"
 
-def _extract_fields(product):
+def _extract_fields(product: dict) -> dict:
     return {
         "id": product.get("id"),
         "title": product.get("title", "N/A"),
@@ -23,7 +23,7 @@ def _extract_fields(product):
     }
 
 
-def get_products(skip=0, limit=10, search_query=None):
+def get_products(skip: int = 0, limit: int = 10, search_query: str | None = None) -> dict:
     # Fetches products from DummyJSON, with optional search and pagination. 
     try:
         params = {"limit": limit, "skip": skip}
