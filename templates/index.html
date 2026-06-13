@@ -67,7 +67,7 @@
             <td>
               <button
                 class="gallery-btn"
-                data-images="{{ product.images | tojson }}"
+                data-images="{{ product.images | tojson | forceescape }}"
               >
                 Gallery
               </button>
