@@ -1,9 +1,6 @@
 <?php
 /**
  * Plugin Name: Product Catalog Compare
- * Description: Displays a searchable, paginated product table from DummyJSON on a dedicated "Compare Assignment" page.
- * Version: 1.0
- * Author: Adi Kapuri
  */
 
 defined('ABSPATH') || exit;
