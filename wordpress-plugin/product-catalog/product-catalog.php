@@ -138,8 +138,8 @@ function pcc_enqueue_styles() {
     wp_register_style('pcc-style', false);
     wp_enqueue_style('pcc-style');
     wp_add_inline_style('pcc-style', '
-        .pcc-container { max-width: 1100px; margin: 0 auto; }
-        .pcc-search-form { display: flex; gap: 10px; margin-bottom: 16px; }
+        .pcc-container { max-width: 1400px; margin: 0 auto; }
+        .pcc-search-form { display: flex; gap: 10px; margin-bottom: 16px; justify-content: center; }
         .pcc-search-input { padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px; width: 250px; }
         .pcc-btn { padding: 8px 16px; background: #2563eb; color: #fff; border: none; border-radius: 6px; text-decoration: none; cursor: pointer; }
         .pcc-btn-clear { background: #6b7280; }
@@ -147,7 +147,7 @@ function pcc_enqueue_styles() {
         .pcc-table th, .pcc-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; font-size: 14px; }
         .pcc-table th { background: #1a1a2e; color: #fff; }
         .pcc-thumbnail { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
-        .pcc-description { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .pcc-description { max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: normal; word-wrap: break-word; }
         .pcc-pagination { display: flex; gap: 16px; align-items: center; justify-content: center; margin-top: 20px; }
         .pcc-error { background: #fee2e2; color: #991b1b; padding: 10px; border-radius: 6px; margin-bottom: 12px; }
         .pcc-no-results { text-align: center; padding: 16px; color: #6b7280; }
