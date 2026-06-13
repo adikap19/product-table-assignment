@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Product Catalog</h1>
+
+      <form method="GET" action="/" class="search-form">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search products..."
+          value="{{ search_query }}"
+          class="search-input"
+        />
+        <button type="submit" class="search-btn">Search</button>
+        {% if search_query %}
+        <a href="/" class="clear-btn">Clear</a>
+        {% endif %}
+      </form>
+
+      {% if error %}
+      <div class="error-message">
+        Unable to load products. Please try again later.
+      </div>
+      {% endif %}
+
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Thumbnail</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Stock</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Gallery</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if products %} {% for product in products %}
+          <tr class="product-row" data-id="{{ product.id }}">
+            <td>
+              <img
+                src="{{ product.thumbnail }}"
+                alt="{{ product.title }}"
+                class="thumbnail"
+              />
+            </td>
+            <td>{{ product.title }}</td>
+            <td class="description">{{ product.description }}</td>
+            <td>${{ "%.2f"|format(product.price) }}</td>
+            <td>{{ product.rating }}</td>
+            <td>{{ product.stock }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+              <button
+                class="gallery-btn"
+                data-images="{{ product.images | tojson }}"
+              >
+                Gallery
+              </button>
+            </td>
+          </tr>
+          <tr class="gallery-row" style="display: none">
+            <td colspan="9">
+              <div class="gallery-container"></div>
+            </td>
+          </tr>
+          {% endfor %} {% else %}
+          <tr>
+            <td colspan="9" class="no-results">No products found.</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        {% if current_page > 1 %}
+        <a
+          href="/?page={{ current_page - 1 }}{% if search_query %}&q={{ search_query }}{% endif %}"
+          class="page-btn"
+          >Previous</a
+        >
+        {% endif %}
+
+        <span class="page-info"
+          >Page {{ current_page }} of {{ total_pages }}</span
+        >
+
+        {% if current_page < total_pages %}
+        <a
+          href="/?page={{ current_page + 1 }}{% if search_query %}&q={{ search_query }}{% endif %}"
+          class="page-btn"
+          >Next</a
+        >
+        {% endif %}
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+  </body>
+</html>
