@@ -103,13 +103,13 @@ function pcc_render_catalog() {
                     <?php foreach ($products as $product): ?>
                         <tr>
                             <td><img src="<?php echo esc_url($product['thumbnail'] ?? ''); ?>" class="pcc-thumbnail" alt=""></td>
-                            <td><?php echo esc_html($product['title'] ?? 'N/A'); ?></td>
+                            <td><?php echo esc_html($product['title'] ?? '—'); ?></td>
                             <td class="pcc-description"><?php echo esc_html($product['description'] ?? ''); ?></td>
                             <td>$<?php echo esc_html(number_format($product['price'] ?? 0, 2)); ?></td>
                             <td><?php echo esc_html($product['rating'] ?? 0); ?></td>
                             <td><?php echo esc_html($product['stock'] ?? 0); ?></td>
-                            <td><?php echo esc_html($product['brand'] ?? 'N/A'); ?></td>
-                            <td><?php echo esc_html($product['category'] ?? 'N/A'); ?></td>
+                            <td><?php echo esc_html($product['brand'] ?? '—'); ?></td>
+                            <td><?php echo esc_html($product['category'] ?? '—'); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

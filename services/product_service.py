@@ -11,13 +11,13 @@ SEARCH_URL = "https://dummyjson.com/products/search"
 def _extract_fields(product: dict) -> dict:
     return {
         "id": product.get("id"),
-        "title": product.get("title", "N/A"),
+        "title": product.get("title", "—"),
         "description": product.get("description", ""),
         "price": product.get("price", 0),
         "rating": product.get("rating", 0),
         "stock": product.get("stock", 0),
         "brand": product.get("brand", "—"),
-        "category": product.get("category", "N/A"),
+        "category": product.get("category", "—"),
         "thumbnail": product.get("thumbnail", ""),
         "images": product.get("images", [])[:3],
     }
