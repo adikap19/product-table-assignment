@@ -137,9 +137,10 @@ h1::after {
   background-color: #8ea7c3;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 13px;
+  font-weight: 500;
 }
 
 .gallery-btn:hover {
@@ -203,6 +204,7 @@ h1::after {
     font-size: 14px;
     cursor: pointer;
     color: #1a1a2e;
+    width: 70px;
     -webkit-appearance: menulist;
     appearance: menulist;
 }
@@ -224,16 +226,6 @@ h1::after {
 .clear-btn:active,
 .page-btn:active {
   transform: translateY(1px);
-}
-
-.gallery-btn {
-  border-radius: 6px;
-  font-weight: 500;
-}
-
-.page-jump select {
-    width: 70px;
-    max-height: 200px;
 }
 
 .page-jump select option {
