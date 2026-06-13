@@ -13,6 +13,7 @@
     <div class="container">
       <h1>Product Catalog</h1>
 
+      <!-- Search Bar -->
       <form method="GET" action="/" class="search-form">
         <input
           type="text"
@@ -33,6 +34,7 @@
       </div>
       {% endif %}
 
+      <!-- Products Table -->
       <table class="product-table">
         <thead>
           <tr>
@@ -86,6 +88,7 @@
         </tbody>
       </table>
 
+      <!-- Pagination -->
       <div class="pagination">
         {% if current_page > 1 %}
         <a
@@ -101,14 +104,7 @@
             {% for p in page_numbers %}
             <option
               value="/?page={{ p }}{% if search_query %}&q={{ search_query }}{% endif %}"
-              {%
-              if
-              p=""
-              ="current_page"
-              %}selected{%
-              endif
-              %}
-            >
+            {% if p == current_page %}selected{% endif %}
               {{ p }}
             </option>
             {% endfor %}
