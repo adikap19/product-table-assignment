@@ -196,13 +196,15 @@ h1::after {
 }
 
 .page-jump select {
-  padding: 6px 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background-color: white;
-  font-size: 14px;
-  cursor: pointer;
-  color: #1a1a2e;
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    color: #1a1a2e;
+    -webkit-appearance: menulist;
+    appearance: menulist;
 }
 
 .page-jump select:focus {
@@ -227,4 +229,13 @@ h1::after {
 .gallery-btn {
   border-radius: 6px;
   font-weight: 500;
+}
+
+.page-jump select {
+    width: 70px;
+    max-height: 200px;
+}
+
+.page-jump select option {
+    color: black;
 }

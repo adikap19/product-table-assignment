@@ -105,6 +105,7 @@
             <option
               value="/?page={{ p }}{% if search_query %}&q={{ search_query }}{% endif %}"
             {% if p == current_page %}selected{% endif %}
+            >
               {{ p }}
             </option>
             {% endfor %}
