@@ -91,19 +91,36 @@
         <a
           href="/?page={{ current_page - 1 }}{% if search_query %}&q={{ search_query }}{% endif %}"
           class="page-btn"
-          >Previous</a
+          >‹ Previous</a
         >
         {% endif %}
 
-        <span class="page-info"
-          >Page {{ current_page }} of {{ total_pages }}</span
-        >
+        <div class="page-jump">
+          <span>Page</span>
+          <select onchange="window.location.href = this.value">
+            {% for p in page_numbers %}
+            <option
+              value="/?page={{ p }}{% if search_query %}&q={{ search_query }}{% endif %}"
+              {%
+              if
+              p=""
+              ="current_page"
+              %}selected{%
+              endif
+              %}
+            >
+              {{ p }}
+            </option>
+            {% endfor %}
+          </select>
+          <span>of {{ total_pages }}</span>
+        </div>
 
         {% if current_page < total_pages %}
         <a
           href="/?page={{ current_page + 1 }}{% if search_query %}&q={{ search_query }}{% endif %}"
           class="page-btn"
-          >Next</a
+          >Next ›</a
         >
         {% endif %}
       </div>

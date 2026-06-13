@@ -28,6 +28,7 @@ def index():
 
     total_items = result.get("total", 0)
     total_pages = max(1, math.ceil(total_items / ITEMS_PER_PAGE))
+    page_numbers = list(range(1, total_pages + 1))
 
     if page > total_pages:
         page = total_pages
@@ -37,6 +38,7 @@ def index():
         products=result.get("products", []),
         current_page=page,
         total_pages=total_pages,
+        page_numbers=page_numbers,
         search_query=search_query,
         error=result.get("error"),
     )
