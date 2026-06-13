@@ -16,7 +16,7 @@ def _extract_fields(product: dict) -> dict:
         "price": product.get("price", 0),
         "rating": product.get("rating", 0),
         "stock": product.get("stock", 0),
-        "brand": product.get("brand", "N/A"),
+        "brand": product.get("brand", "—"),
         "category": product.get("category", "N/A"),
         "thumbnail": product.get("thumbnail", ""),
         "images": product.get("images", [])[:3],
